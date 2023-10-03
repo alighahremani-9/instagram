@@ -134,8 +134,10 @@
                         </div>
                         <p class="description"><span class="user-name">brucewayne99 </span>Here's the description of my picture... <a class="hashtag">#WhateverHashtag</a></p>
                         <p class="comment-number">See 432 comments.</span></p>
-                        <p class="comment"><span class="commenter">ToddTheGreat33 </span>Here's a comment of mine...</p>
-                        <p class="comment"><span class="commenter">EverybodyLovesStella </span>Here's a comment of mine...</p>
+                        {% for comment in comments %}
+                        {% include "comment.html" with comment=comment %}
+                        {% endfor %}
+                        
                         <p class="time">27 DIC.</p>
                         <div class="comment-box">
                             <div class="emoji-selector"></div>
@@ -179,8 +181,9 @@
                         </div>
                         <p class="description"><span class="user-name">joesatrianiii </span>Here's the description of my picture...</p>
                         <p class="comment-number">See 453 comments.</span></p>
-                        <p class="comment"><span class="commenter">ToddTheGreat33 </span>Here's a comment of mine...</p>
-                        <p class="comment"><span class="commenter">Evaristo </span>Here's a comment of mine...</p>
+                        {% for comment in comments %}
+                        {% include "comment.html" with comment=comment %}
+                        {% endfor %}
                         <p class="time">27 DIC.</p>
                         <div class="comment-box">
                             <div class="emoji-selector"></div>
@@ -224,8 +227,9 @@
                         </div>
                         <p class="description"><span class="user-name">jennajameson69 </span>Here's the description of my picture...</p>
                         <p class="comment-number">See 245 comments.</span></p>
-                        <p class="comment"><span class="commenter">ToddTheGreat33 </span>Here's a comment of mine...</p>
-                        <p class="comment"><span class="commenter">JohnEver832 </span>Here's a comment of mine...</p>
+                        {% for comment in comments %}
+                        {% include "comment.html" with comment=comment %}
+                        {% endfor %}
                         <p class="time">27 DIC.</p>
                         <div class="comment-box">
                             <div class="emoji-selector"></div>
@@ -313,8 +317,9 @@
                         </div>
                         <p class="description"><span class="user-name">bennyhillibilly </span>Here's the description of my picture...</p>
                         <p class="comment-number">See 12 comments.</span></p>
-                        <p class="comment"><span class="commenter">Bleach239 </span>Here's a comment of mine...</p>
-                        <p class="comment"><span class="commenter">AllApologies092 </span>Here's a comment of mine...</p>
+                        {% for comment in comments %}
+                        {% include "comment.html" with comment=comment %}
+                        {% endfor %}
                         <p class="time">27 DIC.</p>
                         <div class="comment-box">
                             <div class="emoji-selector"></div>
@@ -358,8 +363,9 @@
                         </div>
                         <p class="description"><span class="user-name">kurtkobayn </span>Here's the description of my picture...</p>
                         <p class="comment-number">See 423 comments.</span></p>
-                        <p class="comment"><span class="commenter">EvenSteven12 </span>Here's a comment of mine...</p>
-                        <p class="comment"><span class="commenter">PepsiSucks823 </span>Here's a comment of mine...</p>
+                        {% for comment in comments %}
+                        {% include "comment.html" with comment=comment %}
+                        {% endfor %}
                         <p class="time">27 DIC.</p>
                         <div class="comment-box">
                             <div class="emoji-selector"></div>
