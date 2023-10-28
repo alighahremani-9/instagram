@@ -17,9 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from blog.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('<int:id>', post_detail , name="post-detail"),
+    path('', index ,name="index"),
+    path('<int:id>', post_detail,name="post_detail"),
+    path("create/",create_post,name="create"),
+    path("post/",post,name="post")
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

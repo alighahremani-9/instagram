@@ -1,0 +1,57 @@
+{% load static %}
+
+<div class="post">
+    <div class="post-header">
+        <div class="user-id">
+            <img class="user-profile-pic" src="{{ post.profile.url }}">
+            <span class="user-profile-name">{{ post.user }}</span>
+        </div>
+        <span class="three-dots">· · ·</span>
+    </div>
+    <img class="post-image" src="{{ post.picture.url }}">
+    <div class="post-icons">
+        <div class="post-icons-123">
+            <span class="fa fa-heart" style="color:red;font-size:36px;padding:10px;margin:0 auto;"></span>
+            <span class="fa fa-envelope" style="color:lightblue;font-size:36px;padding:10px;margin:0 auto;"></span>
+            <span class="fa fa-share" style="color:lightblue;font-size:36px;padding:10px;margin:0 auto;"></span>
+        </div>
+        <div class="post-icons-4">
+            <span class="fa fa-save" style="color:lightblue;font-size:36px;padding:10px 0;margin:0 auto;"></span>
+        </div>
+    </div>
+    <div id="post-texts">
+        <div class="likes">
+            <div class=likes-pics>
+                <img class="likes-pic-1" src="{% static 'blog/images/Bruce.jpg' %}">
+                <img class="likes-pic-2" src="{% static 'blog/images/Joe.jpg' %}">
+                <img class="likes-pic-3" src="https://ibaifernandez.com/wp-content/uploads/2021/04/Ibai-Ferna%CC%81ndez.jpeg">
+            </div>
+            <p><span class="liker">mmontufarq and 735 more users</span> like this pic.</p>
+        </div>
+        <p class="description"><span class="user-name">{{ post.user }}</span>&nbsp{{ post.description }}</p>
+        <p class="comment-number">see {{ post.comment_set.count}} comments</span></p>
+
+        {% for comment in post.comment_set.all %}
+            <p class="comment"><span class="commenter">{{ comment.user_name }}</span>&nbsp{{ comment.body }}</p>
+        {% endfor %}
+
+        {% comment %} {% for comment in comments %}
+            {% include "comment.html" with comment=comment %}
+        {% endfor %} {% endcomment %}
+        {% comment %} {% include "comment.html" with comment=comment %} {% endcomment %}
+        
+        {% comment %} <p class="time">{{ post.crate_at }}</p> {% endcomment %}
+        <div class="comment-box">
+            <div class="emoji-selector"></div>
+            <div class="comment-textbox">
+                <form id="comment-form" action="{% url "post_detail" post.id %}" method="post">
+                    {% csrf_token %}
+                    <label><input type="text" name="body" placeholder="Add a comment..."></label>
+                    <label><input type="text" name="user_name" placeholder="commenter name..."></label>
+                    <input type="submit" value="Publish">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
